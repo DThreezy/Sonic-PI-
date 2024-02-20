@@ -6,6 +6,49 @@ use_bpm 136
 use_synth :piano
 
 
+define :m2_8_notes do
+  
+  play:E4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 2
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :m3_4_6_notes do# Measure 3
+  play :r
+  sleep 1
+  play:E5
+  play:Gs4
+  play:B4
+  sleep 1
+  play:B4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :m5_7notes do # Measure 5
+play:B4
+sleep 0.75
+play:As4
+sleep 0.25
+play:Gs4
+play:B4
+sleep 0.75
+play:Cs5
+sleep 0.25
+play:B4
+sleep 1
+play:Gs4
+play:E5
+sleep 1
+end
+
 live_loop:background_notes do
   play:E3, amp: 0.25
   sleep 1
@@ -59,88 +102,36 @@ live_loop :background_bs do
   stop
 end
 
-define :m1_notes do
-  # Measure 1
-  play :r
-  sleep 1
-  play:E4
-  play:Gs4
-  sleep 2
-  play:E5
-  play:Gs4
-  sleep 1
-end
 
-m1_notes
-
-1.times do # Measure 1
-  m1_notes
-end
-
-m1_notes
-1.times do # Measure 2
-  m1_notes
-end
-
-define :m3_notes do# Measure 3
-  play :r
-  sleep 1
-  play:E5
-  play:Gs4
-  play:B4
-  sleep 1
-  play:B4
-  sleep 1
-  play:E5
-  play:Gs4
-  sleep 1
-end
-
-
-m3_notes
-# Measure 4
-1.times do
-  m3_notes
-end
-
-define :m5_notes do # Measure 5
-  play:B4
-  sleep 0.75
-  play:As4
-  sleep 0.25
-  play:Gs4
-  play:B4
-  sleep 0.75
-  play:Cs5
-  sleep 0.25
-  play:B4
-  sleep 1
-  play:Gs4
-  play:E5
-  sleep 1
-end
-
-
-m5_notes
-# Measure 6
-1.times do
-  m5_notes
-end
-
-m5_notes
-# Measure 7
-1.times do
-  m5_notes
-end
-
-#Measure 8
-play:E4
+# Measure 1
+play :r
 sleep 1
-play:E5
+play:E4
 play:Gs4
 sleep 2
 play:E5
 play:Gs4
 sleep 1
+
+# Measure 2
+m2_8_notes
+
+# Measure 3
+m3_4_6_notes
+
+# Measure 4
+m3_4_6_notes
+
+# Measure 5
+m5_7notes
+
+# Measure 6
+m3_4_6_notes
+
+# Measure 7
+m5_7notes
+
+# Measure 8
+m2_8_notes
 
 play_pattern_timed [:c4, :e4, :f4, :g4, :f4, :e4, :f4, :g4, :f4, :e4, :f4], [0.25, 0.25, 0.25, 1.5, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25], attack: 0, release: 0.2
